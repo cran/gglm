@@ -1,70 +1,126 @@
 
+<!-- badges: start -->
+
+[![CRAN
+status](https://www.r-pkg.org/badges/version/gglm)](https://cran.r-project.org/package=gglm)
+[![R-CMD-check](https://github.com/graysonwhite/gglm/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/graysonwhite/gglm/actions/workflows/R-CMD-check.yaml)
+<!-- badges: end -->
+
 # gglm <img src="https://github.com/graysonwhite/gglm/blob/master/figs/gglm.gif?raw=true" align="right" width=125 />
 
 ## Overview
 
-`gglm`, The **G**rammar of **G**raphics for **L**inear **M**odel
-Diagnostics, is a package that creates beautiful `ggplot2` diagonostic
-plots for linear models that are easy to use and adhere to The Grammar
-of Graphics. The purpose of this package is to provide a sensible
-alternative to using the base-R `plot()` function to produce diagnostic
-plots for linear models.
+`gglm`, The Grammar of Graphics for Linear Model Diagnostics, is an R
+package and [official `ggplot2`
+extension](https://exts.ggplot2.tidyverse.org/gallery/) that creates
+beautiful diagnostic plots using `ggplot2` for a variety of model
+objects. These diagnostic plots are easy to use and adhere to the
+Grammar of Graphics. The purpose of this package is to provide a
+sensible alternative to using the base-R `plot()` function to produce
+diagnostic plots for model objects. Currently, `gglm` supports all model
+objects that are supported by `broom::augment()`,
+`broom.mixed::augment()`, or `ggplot2::fortify()`. For example, objects
+that are outputted from `stats::lm()`, `lme4::lmer()`, `brms::brm()`,
+and many other common modeling functions will work with `gglm`. The
+function `gglm::list_model_classes()` provides a full list of model
+classes supported by `gglm`.
 
 ## Installation
 
+`gglm` can be installed from CRAN:
+
 ``` r
-# Currently, the best way to install is from GitHub.
+install.packages("gglm")
+```
+
+Or, the developmental version of `gglm` can be installed from GitHub:
+
+``` r
 devtools::install_github("graysonwhite/gglm")
 ```
 
 ## Examples
 
-`gglm` has two main types of functions. First, the `gglm()` function for
-quickly creating the four main diagnostic plots, similar to when you
-call `plot()` on an `lm` type object. Second, the `stat_*()` functions,
-which produce diagnostic plots the align with The Grammar of Graphics by
-creating `ggplot2` layers that allow for easy plotting of particular
-model diagnostic plots.
+`gglm` has two main types of functions. First, the `gglm()` function is
+used for quickly creating the four main diagnostic plots, and behaves
+similarly to how `plot()` works on an `lm` type object. Second, the
+`stat_*()` functions are used to produce diagnostic plots by creating
+`ggplot2` layers. These layers allow for plotting of particular model
+diagnostic plots within the `ggplot2` framework.
 
 ### Example 1: Quickly creating the four diagnostic plots with `gglm()`
 
+Consider a simple linear model used to predict miles per gallon with
+weight. We can fit this model with `lm()`, and then diagnose it easily
+by using `gglm()`.
+
 ``` r
-library(gglm) # Load the package
-data(mtcars) # Load example data
-model <- lm(mpg ~ ., data = mtcars) # Create your model
+library(gglm) # Load gglm
+
+model <- lm(mpg ~ wt, data = mtcars) # Fit the simple linear model
 
 gglm(model) # Plot the four main diagnostic plots
 ```
 
-![](README_files/figure-gfm/unnamed-chunk-2-1.png)<!-- -->
+![](README_files/figure-gfm/unnamed-chunk-3-1.png)<!-- -->
+
+Now, one may be interested in a more complicated model, such as a mixed
+model with a varying intercept on `cyl`, fit with the `lme4` package.
+Luckily, `gglm` accommodates a variety of models and modeling packages,
+so the diagnostic plots for the mixed model can be created in the same
+way as they were for the simple linear model.
+
+``` r
+library(lme4) # Load lme4 to fit the mixed model
+
+mixed_model <- lmer(mpg ~ wt + (1 | cyl), data = mtcars) # Fit the mixed model
+
+gglm(mixed_model) # Plot the four main diagnostic plots.
+```
+
+![](README_files/figure-gfm/unnamed-chunk-4-1.png)<!-- -->
 
 ### Example 2: Using the Grammar of Graphics with the `stat_*()` functions
 
-``` r
-library(ggplot2) # Need to load ggplot2
+`gglm` also provides functionality to stay within the Grammar of
+Graphics by providing functions that can be used as `ggplot2` layers. An
+example of one of these functions is the `stat_fitted_resid()` function.
+With this function, we can take a closer look at just the fitted
+vs. residual plot from the mixed model fit in Example 1.
 
-ggplot(data = model) +
+``` r
+ggplot(data = mixed_model) +
   stat_fitted_resid()
 ```
 
-![](README_files/figure-gfm/unnamed-chunk-3-1.png)<!-- -->
+![](README_files/figure-gfm/unnamed-chunk-5-1.png)<!-- -->
+
+After taking a closer look, we may want to clean up the look of the plot
+for a presentation or a project. This can be done by adding other layers
+from `ggplot2` to the plot. Note that any `ggplot2` layers can be added
+on to any of the `stat_*()` functions provided by `gglm`.
 
 ``` r
-# We can also add layers such as themes to these `ggplot`s and adjust features of the plot:
-ggplot(data = model) +
-  stat_cooks_leverage(alpha = 1) +
-  theme_minimal()
+ggplot(data = mixed_model) +
+  stat_fitted_resid(alpha = 1) + 
+  theme_bw() + # add a clean theme 
+  labs(title = "Residual vs fitted values for the mixed model") + # change the title
+  theme(plot.title = element_text(hjust = 0.5)) # center the title
 ```
 
-![](README_files/figure-gfm/unnamed-chunk-3-2.png)<!-- -->
+![](README_files/figure-gfm/unnamed-chunk-6-1.png)<!-- -->
+
+Wow! What a beautiful and production-ready diagnostic plot!
 
 ## Functions
 
 ### For quick and easy plotting
 
-`gglm()` plots the four default diagnostic plots when supplied an `lm`
-object. This function works similarly to `plot.lm()`, except that it
-displays the four diagnostic plots at once.
+`gglm()` plots the four default diagnostic plots when supplied a model
+object (this is similar to `plot.lm()` in the case of an object
+generated by `lm()`). Note that can `gglm()` take many types of model
+object classes as its input, and possible model object classes can be
+seen with `list_model_classes()`
 
 ### Following the Grammar of Graphics
 
@@ -72,3 +128,7 @@ displays the four diagnostic plots at once.
 `stat_scale_location()`, `stat_cooks_leverage()`, `stat_cooks_obs()`,
 and `stat_resid_leverage()` all are `ggplot2` layers used to create
 individual diagnostic plots. To use these, follow Example 2.
+
+### Other functions
+
+`list_model_classes()` lists the model classes compatible with `gglm`.
