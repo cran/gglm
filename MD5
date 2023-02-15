@@ -1,4 +1,4 @@
-fb7879bc9785d432489c66516fe9490c *DESCRIPTION
+50522da4336b64c993222e0b2f8363cc *DESCRIPTION
 8f05ac9e1527b29da8156232e82e9e4e *NAMESPACE
 120a4179c74f976e9d462634999d58fe *R/aaa.R
 3db8e585285801d3b29bfe36b2d3e873 *R/gglm.R
@@ -12,6 +12,10 @@ a43fe0e1dd6cf7da3d2a6db335259e75 *R/stat_normal_qq.R
 60557c0620463751e9880b1faf31c39b *R/stat_scale_location.R
 04e43aa765d56bd718006471bce193f2 *R/utils.R
 dd5dd2dfa514ffdb6a4de6b46783c9f7 *README.md
+f633bbb96be0ea025a636cc2016fb892 *man/figures/unnamed-chunk-3-1.png
+3addefdd2606be533350f9cd8582bd84 *man/figures/unnamed-chunk-4-1.png
+843652f87f5560cd51e3a47271abd30b *man/figures/unnamed-chunk-5-1.png
+66e5d1d46b2a9d94c2395fcc699db0bf *man/figures/unnamed-chunk-6-1.png
 cf5c8176a6c95b39ace37d5ba80c5d80 *man/gglm.Rd
 4accd488855023de034680549a815a5c *man/list_model_classes.Rd
 d732f85c96722ab7542ba99c89019c56 *man/reexports.Rd
