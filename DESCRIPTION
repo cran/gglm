@@ -1,7 +1,7 @@
 Package: gglm
 Type: Package
 Title: Grammar of Graphics for Linear Model Diagnostic Plots
-Version: 1.0.1
+Version: 1.0.2
 Authors@R: 
     c(person(given = "Grayson",
              family = "White",
@@ -18,10 +18,10 @@ Imports: broom, broom.mixed, dplyr, metafor, nlme, patchwork, purrr,
 Suggests: lme4
 URL: https://github.com/graysonwhite/gglm
 BugReports: https://github.com/graysonwhite/gglm/issues
-RoxygenNote: 7.2.1
+RoxygenNote: 7.2.3
 NeedsCompilation: no
-Packaged: 2023-02-15 18:23:12 UTC; graysonwhite
+Packaged: 2023-03-21 17:38:07 UTC; grayson
 Author: Grayson White [aut, cre] (<https://orcid.org/0000-0003-4993-2792>)
 Maintainer: Grayson White <graysonwhite13@gmail.com>
 Repository: CRAN
-Date/Publication: 2023-02-15 18:30:02 UTC
+Date/Publication: 2023-03-21 18:00:02 UTC
