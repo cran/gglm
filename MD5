@@ -1,4 +1,4 @@
-8395fdda6c1001d8befa1c0924723dcd *DESCRIPTION
+371fc4f19b832edc431651046ff18533 *DESCRIPTION
 8f05ac9e1527b29da8156232e82e9e4e *NAMESPACE
 120a4179c74f976e9d462634999d58fe *R/aaa.R
 8efbc02fcf2485cb8e6b9976efdf140f *R/gglm.R
@@ -8,7 +8,7 @@ b7a22853edbbe4ba4bb852113cc551da *R/list_model_classes.R
 6599859557101c5f2e870fb4add4f0fe *R/stat_fitted_resid.R
 a43fe0e1dd6cf7da3d2a6db335259e75 *R/stat_normal_qq.R
 210c3feea5cf959651a84f41b7bb00be *R/stat_resid_hist.R
-265886303cc4b22ef4e287d7c36b65f0 *R/stat_resid_leverage.R
+7f6cab50d95cd2512d3b34e8eadc02e9 *R/stat_resid_leverage.R
 60557c0620463751e9880b1faf31c39b *R/stat_scale_location.R
 04e43aa765d56bd718006471bce193f2 *R/utils.R
 dd5dd2dfa514ffdb6a4de6b46783c9f7 *README.md
@@ -26,3 +26,12 @@ fee1b654c489475ba4e73b4380f4cb86 *man/stat_normal_qq.Rd
 fb5f74df89f6cc8814d805c5919df550 *man/stat_resid_hist.Rd
 29f856b807f620ed1e510485e486a199 *man/stat_resid_leverage.Rd
 063866e8435730e0bcf10938d5585053 *man/stat_scale_location.Rd
+fb8454ccb776329c30a71c440d4388ee *tests/testthat.R
+a1c9d1ca45f3b085dae3385e31bde160 *tests/testthat/test-gglm.R
+33259ede2d9cc37c728b207a504f38e8 *tests/testthat/test-stat_cooks_leverage.R
+2584993b8cc03584b1d92477b4743752 *tests/testthat/test-stat_cooks_obs.R
+1024e69da39642f7c8fde22bc0a12e7c *tests/testthat/test-stat_fitted_resid.R
+f7305db61c58a87cde851a15047ee708 *tests/testthat/test-stat_normal_qq.R
+4c62de6344d73bd06950136a0418c950 *tests/testthat/test-stat_resid_hist.R
+b01b8d14392104b8818c0c8a18f46e8a *tests/testthat/test-stat_resid_leverage.R
+53ff9e755d70771a6f7f7af18ecdaa68 *tests/testthat/test-stat_scale_location.R
