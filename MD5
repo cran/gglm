@@ -1,8 +1,8 @@
-7a2dbe29ab133e377a94a03525a43a5f *DESCRIPTION
+8374bcd688bdb81727e98d139806bd61 *DESCRIPTION
 8f05ac9e1527b29da8156232e82e9e4e *NAMESPACE
-120a4179c74f976e9d462634999d58fe *R/aaa.R
-8efbc02fcf2485cb8e6b9976efdf140f *R/gglm.R
-b7a22853edbbe4ba4bb852113cc551da *R/list_model_classes.R
+5f0f9f5397ab9d1e0f1d23c4ffe9d4b4 *R/aaa.R
+fa95e7bc80d22e2d7f601199fc677b24 *R/gglm.R
+5e3a70f907f57caa197d4fd66ac56afe *R/list_model_classes.R
 7917471f4f03a29c66e0f5f274e82896 *R/stat_cooks_leverage.R
 3b43a43dfece449ef5368999c5295fee *R/stat_cooks_obs.R
 6599859557101c5f2e870fb4add4f0fe *R/stat_fitted_resid.R
@@ -10,7 +10,7 @@ a43fe0e1dd6cf7da3d2a6db335259e75 *R/stat_normal_qq.R
 210c3feea5cf959651a84f41b7bb00be *R/stat_resid_hist.R
 7f6cab50d95cd2512d3b34e8eadc02e9 *R/stat_resid_leverage.R
 60557c0620463751e9880b1faf31c39b *R/stat_scale_location.R
-04e43aa765d56bd718006471bce193f2 *R/utils.R
+180b2e7daf1f37116d5a00e52595fe3d *R/utils.R
 dd5dd2dfa514ffdb6a4de6b46783c9f7 *README.md
 f633bbb96be0ea025a636cc2016fb892 *man/figures/unnamed-chunk-3-1.png
 3addefdd2606be533350f9cd8582bd84 *man/figures/unnamed-chunk-4-1.png
